@@ -28,6 +28,13 @@ public class Ejemplo051 {
 
                 System.out.printf("Resultado %d\n", resultado);
                 bandera = false;
+                /* En este programa usa el ciclo while bandera 
+                porque cuando el usuario escriba mal los valores mostrara los 
+                catchs y volvera a la condicion del while donde bandera seguira 
+                true porque le volvera a pedir los datos nuevamente bien escrito
+                y cuando escriba bien los datos bandera se vovlera falsa y 
+                saldra del ciclo.
+                */
             } catch (InputMismatchException inputMismatchException) {
 
                 System.out.printf("Existe un error de tipo %s\n",
