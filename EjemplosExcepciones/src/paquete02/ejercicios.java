@@ -4,6 +4,7 @@
  */
 package paquete02;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -16,34 +17,49 @@ public class ejercicios {
 
         int valor1 = ingresarValor();
         int valor2 = ingresarValor();
-        
+        int suma = obtenerSuma(valor1, valor2);
+        imprimir(valor1, valor2, suma);
 
     }
 
     public static int ingresarValor() {
+        int valor = 0;
         boolean bandera = true;
         while (bandera) {
-            try{
+            try {
                 Scanner entrada = new Scanner(System.in);
 
-                System.out.println("Ingrese valor 1:");
-                int valor1 = entrada.nextInt();
-                System.out.println("Ingrese valor 2:");
-                int valor2 = entrada.nextInt();
+                System.out.println("Ingrese valor:");
+                valor = entrada.nextInt();
 
-                if (valor1 % 2 == 0 || valor2 % 2 == 0) {
+                if (valor % 2 != 0) {
+                    throw new Exception("Numero impar");
+                } else {
+                    if (valor < 0) {
+                        throw new Exception("Numero impar");
+                    }
+                    bandera = false;
+
                 }
-                bandera = false;
+            } catch (Exception e) {
+
+                System.out.printf("Existe un error de tipo %s\n",
+                        e);
             }
         }
-        return bandera;
+        return valor;
     }
 
-    public static void imprimir() {
-
+    public static int obtenerSuma(int a, int b) {
+        int suma;
+        suma = a + b;
+        return suma;
     }
 
-    public static int obtenerSuma() {
+    public static void imprimir(int a, int b, int c) {
+        System.out.printf("La suma de: %s y %s es de %s:", a, b,c);
+    
+
 
     }
 
